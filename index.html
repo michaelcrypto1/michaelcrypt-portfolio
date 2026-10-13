@@ -50,8 +50,8 @@ nav{
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;}
 .logo{font-family:'Cinzel',serif;font-weight:700;font-size:1.15rem;letter-spacing:.04em;}
 .logo em{font-style:normal;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent;}
-.nav-links{display:flex;gap:1.6rem;}
-.nav-links a{color:var(--muted);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;transition:color .2s;}
+.nav-links{display:flex;gap:1.15rem;}
+.nav-links a{color:var(--muted);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;}
 .nav-links a:hover{color:var(--gold);}
 .nav-cta{
   padding:.5rem 1.2rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
@@ -130,6 +130,9 @@ section{padding:5rem 0;position:relative;}
 
 /* section ambience (violet glows for cohesion) */
 #about{background:radial-gradient(70% 60% at 12% 0%,rgba(139,92,246,.10),transparent 60%);}
+#now{background:radial-gradient(70% 60% at 100% 0%,rgba(124,58,237,.10),transparent 60%);}
+#skills{background:radial-gradient(70% 60% at 0% 50%,rgba(167,139,250,.08),transparent 60%);}
+#program{background:radial-gradient(80% 70% at 50% 0%,rgba(139,92,246,.13),transparent 60%);}
 #service{background:radial-gradient(70% 60% at 100% 10%,rgba(167,139,250,.09),transparent 60%);}
 #miched209{background:radial-gradient(70% 60% at 0% 50%,rgba(124,58,237,.09),transparent 60%);}
 #process{background:radial-gradient(70% 60% at 100% 60%,rgba(139,92,246,.09),transparent 60%);}
@@ -225,6 +228,45 @@ footer .f-brand{font-family:'Cinzel',serif;color:var(--gold);font-weight:600;mar
 .lb-cap{margin-top:14px;text-align:center;font-family:'Cinzel',serif;color:var(--gold);font-size:1rem;letter-spacing:.04em;}
 @media(max-width:560px){.lb-prev{left:6px;}.lb-next{right:6px;}.lb-close{right:12px;}}
 
+/* ABOUT HERO — Real Problems */
+.center-head{text-align:center;}
+.about-hero{display:grid;grid-template-columns:1.4fr .6fr;gap:2rem;align-items:center;border:1px solid var(--line);background:linear-gradient(135deg,rgba(139,92,246,.10),transparent 60%),var(--surface);border-radius:24px;padding:2.4rem;margin-bottom:2.2rem;position:relative;overflow:hidden;}
+.about-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 90% at 90% 0%,rgba(124,58,237,.18),transparent 60%);pointer-events:none;}
+.about-hero>*{position:relative;}
+.ah-copy h3{font-family:'Cinzel',serif;font-size:clamp(1.6rem,4vw,2.3rem);line-height:1.15;margin-bottom:.8rem;}
+.ah-copy p{color:var(--muted);max-width:640px;font-size:1.05rem;margin-bottom:1.5rem;}
+.about-actions{display:flex;flex-wrap:wrap;gap:.8rem;}
+.ah-float{display:flex;flex-direction:column;align-items:center;gap:1rem;}
+.ah-badge{padding:.8rem 1.4rem;border-radius:50px;border:1px solid var(--line);background:var(--surface2);font-family:'Cinzel',serif;font-weight:600;font-size:.9rem;color:var(--gold);box-shadow:0 10px 30px rgba(0,0,0,.35);white-space:nowrap;animation:floaty 4.5s ease-in-out infinite;}
+.ah-badge.alt{color:var(--text);border-color:var(--gold2);animation-delay:1.2s;}
+@keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+.about-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem;}
+.chip{padding:.5rem 1.1rem;border:1px solid var(--line);border-radius:50px;background:var(--surface);color:var(--text);font-size:.8rem;letter-spacing:.04em;}
+.chip:nth-child(4){border-color:var(--gold2);color:var(--gold);}
+
+/* NOW — what I'm currently doing */
+.now-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
+.now-card{border:1px solid var(--line);background:var(--surface);border-radius:18px;padding:1.4rem 1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:transform .25s,border-color .25s,box-shadow .25s;}
+.now-card:hover{transform:translateY(-5px);border-color:var(--gold2);box-shadow:0 16px 36px rgba(0,0,0,.5);}
+.now-ico{flex:0 0 auto;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(167,139,250,.22),rgba(124,58,237,.18));display:flex;align-items:center;justify-content:center;font-size:1.25rem;}
+.now-card h4{font-family:'Cinzel',serif;font-size:1.02rem;margin-bottom:.3rem;}
+.now-card p{color:var(--muted);font-size:.88rem;}
+.now-card .svc-link{margin-top:.5rem;}
+
+/* STACK — skills */
+.stack-wrap{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;max-width:820px;margin:0 auto;}
+.stack-chip{padding:.7rem 1.4rem;border:1px solid var(--line);border-radius:50px;background:var(--surface);color:var(--text);font-size:.9rem;font-weight:500;transition:transform .2s,border-color .2s,color .2s;}
+.stack-chip:hover{transform:translateY(-3px);border-color:var(--gold2);color:var(--gold);}
+
+/* PROGRAM — NEXTGEN */
+.program-card{border:1px solid var(--line);background:linear-gradient(135deg,rgba(139,92,246,.10),transparent 55%),var(--surface2);border-radius:24px;padding:2.6rem;max-width:900px;margin:0 auto;position:relative;overflow:hidden;}
+.program-card::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 80% at 100% 0%,rgba(124,58,237,.2),transparent 60%);pointer-events:none;}
+.program-card>*{position:relative;}
+.program-card p{color:var(--text);font-size:1.05rem;margin-bottom:1rem;}
+.program-card p:last-child{margin-bottom:0;}
+.program-card b{color:var(--gold);}
+@media(max-width:900px){.about-hero{grid-template-columns:1fr;}.ah-float{flex-direction:row;justify-content:flex-start;flex-wrap:wrap;}.now-grid{grid-template-columns:1fr;}}
+
 /* AI VIDEO PORTFOLIO */
 #aivideo{background:radial-gradient(80% 70% at 50% 0%,rgba(124,58,237,.13),transparent 60%);}
 .sec-sub{color:var(--muted);max-width:640px;margin-top:.7rem;font-size:1.02rem;}
@@ -273,8 +315,10 @@ footer .f-brand{font-family:'Cinzel',serif;color:var(--gold);font-weight:600;mar
     <button class="menu-toggle" id="menuToggle">☰</button>
     <div class="nav-links" id="navLinks">
       <a href="#about">About</a>
+      <a href="#now">Now</a>
       <a href="#service">Service</a>
       <a href="#aivideo">Videos</a>
+      <a href="#skills">Skills</a>
       <a href="#miched209">Miched209</a>
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
@@ -322,22 +366,63 @@ footer .f-brand{font-family:'Cinzel',serif;color:var(--gold);font-weight:600;mar
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-eyebrow">About</div>
-      <h2 class="sec-title">Welcome to <span class="gold">My World</span></h2>
+      <h2 class="sec-title">About <span class="gold">Me</span></h2>
     </div>
+
+    <div class="about-hero reveal">
+      <div class="ah-copy">
+        <h3>Real <span class="gold">Problems.</span></h3>
+        <p>I'm a student, AI explorer, Web3 enthusiast, and builder documenting my journey of learning, creating, and sharing practical AI solutions.</p>
+        <div class="about-actions">
+          <a class="btn btn-gold" href="#gallery">View My Projects</a>
+          <a class="btn btn-outline" href="#contact">Connect With Me →</a>
+        </div>
+      </div>
+      <div class="ah-float">
+        <div class="ah-badge">⚡ AI Agent Builder</div>
+        <div class="ah-badge alt">Senior Elite · NEXTGEN</div>
+      </div>
+    </div>
+
     <div class="about-grid">
       <div class="about-copy reveal">
-        <p class="lead">I'm <strong>Michael</strong> — a Web3 Community Manager, Growth Strategist and Content Creator who has been in the trenches of this space long enough to know what actually works.</p>
-        <p>My goal is simple: <strong>help your project grow, stay active and build a community that actually cares.</strong> A dead community kills a good project. I make sure yours stays alive.</p>
-        <p>I've evolved into a full-spectrum Web3 marketing partner — managing communities, engineering growth, creating content and amplifying your signal across X, Telegram and Discord.</p>
+        <p class="lead">I'm passionate about <strong>AI, automation, Web3 and technology</strong>. I spend my time learning cutting-edge AI tools, building workflows, experimenting with prompts, creating AI agents, and documenting everything I learn.</p>
+        <p>My focus sits where <strong>AI automation, Web3 and technology management</strong> meet — learning how intelligent tools, on-chain communities and modern systems come together to solve real problems.</p>
+        <p>I believe in learning by building and sharing what actually works — turning curiosity into projects, and projects into skills that compound.</p>
       </div>
       <div class="pillars reveal">
-        <div class="pillar"><div class="p-num">01</div><h4>Community Building</h4><p>I build people who stay, engage &amp; defend your project.</p></div>
-        <div class="pillar"><div class="p-num">02</div><h4>Growth Strategy</h4><p>Awareness, positioning &amp; outreach — the full picture.</p></div>
-        <div class="pillar"><div class="p-num">03</div><h4>Social Management</h4><p>Active, professional &amp; growing X, TG &amp; Discord pages.</p></div>
-        <div class="pillar"><div class="p-num">04</div><h4>Social Amplification</h4><p>Raiding, threads &amp; coordinated engagement that hits.</p></div>
-        <div class="pillar"><div class="p-num">05</div><h4>AI Content Creation</h4><p>Simple content that even a newcomer understands.</p></div>
-        <div class="pillar"><div class="p-num">06</div><h4>AI Video Animation</h4><p>Short-form AI videos that stop the scroll.</p></div>
+        <div class="pillar"><div class="p-num">01</div><h4>AI &amp; Automation</h4><p>Agents and workflows that handle real work end-to-end.</p></div>
+        <div class="pillar"><div class="p-num">02</div><h4>Web3</h4><p>Communities, growth and on-chain ecosystems.</p></div>
+        <div class="pillar"><div class="p-num">03</div><h4>Prompt Engineering</h4><p>Precise prompts and workflow design, from the ground up.</p></div>
+        <div class="pillar"><div class="p-num">04</div><h4>Technology Management</h4><p>Making tools, teams and systems scale together.</p></div>
+        <div class="pillar"><div class="p-num">05</div><h4>Research</h4><p>Digging into what's new and what actually works.</p></div>
+        <div class="pillar"><div class="p-num">06</div><h4>Problem Solving</h4><p>Turning messy problems into practical solutions.</p></div>
       </div>
+    </div>
+
+    <div class="about-tags reveal">
+      <span class="chip">AI</span>
+      <span class="chip">Web3</span>
+      <span class="chip">Automation</span>
+      <span class="chip">Senior Elite · NEXTGEN</span>
+    </div>
+  </div>
+</section>
+
+<!-- NOW -->
+<section id="now">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Now</div>
+      <h2 class="sec-title">What I'm <span class="gold">Currently Doing</span></h2>
+    </div>
+    <div class="now-grid">
+      <div class="now-card reveal"><div class="now-ico">🧠</div><div><h4>Building AI Agents</h4><p>Crafting AI agents that handle real-world tasks end-to-end.</p></div></div>
+      <div class="now-card reveal"><div class="now-ico">⚙️</div><div><h4>AI Automation</h4><p>Exploring automation and productivity systems that compound output.</p></div></div>
+      <div class="now-card reveal"><div class="now-ico">✍️</div><div><h4>Prompt Engineering</h4><p>Learning prompt engineering and workflow design from the ground up.</p></div></div>
+      <div class="now-card reveal"><div class="now-ico">🚀</div><div><h4>Practical Projects</h4><p>Shipping practical AI projects instead of just consuming tutorials.</p></div></div>
+      <div class="now-card reveal"><div class="now-ico">📣</div><div><h4>Sharing Publicly</h4><p>Documenting the journey openly to help others learn faster.</p></div></div>
+      <div class="now-card reveal"><div class="now-ico">🤖</div><div><h4>Discord Bot (Drop V2.0)</h4><p>Automated welcome messages, moderation tools, and expanding task support for Discord communities.</p></div></div>
     </div>
   </div>
 </section>
@@ -496,6 +581,42 @@ footer .f-brand{font-family:'Cinzel',serif;color:var(--gold);font-weight:600;mar
       <div class="step reveal"><div class="s-num">4</div><h3>Amplify &amp; Grow</h3><p>Raids, threads and coordinated pushes put your project in front of the right eyes.</p></div>
       <div class="step reveal"><div class="s-num">5</div><h3>Create &amp; Convert</h3><p>AI content and video keep attention, education and conversion moving forward.</p></div>
       <div class="step reveal"><div class="s-num">6</div><h3>Report &amp; Scale</h3><p>Clear reporting on growth and engagement — then we scale what works.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal center-head">
+      <div class="sec-eyebrow">Stack</div>
+      <h2 class="sec-title">Skills</h2>
+    </div>
+    <div class="stack-wrap reveal">
+      <span class="stack-chip">AI Agents</span>
+      <span class="stack-chip">AI Automation</span>
+      <span class="stack-chip">Prompt Engineering</span>
+      <span class="stack-chip">AI Workflows</span>
+      <span class="stack-chip">AI Tools</span>
+      <span class="stack-chip">Web3</span>
+      <span class="stack-chip">Research</span>
+      <span class="stack-chip">Problem Solving</span>
+      <span class="stack-chip">Technology Management</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section id="program">
+  <div class="wrap">
+    <div class="sec-head reveal center-head">
+      <div class="sec-eyebrow">Program</div>
+      <h2 class="sec-title">How <span class="gold">NEXTGEN</span> Is Helping Me</h2>
+    </div>
+    <div class="program-card reveal">
+      <p><b>NEXTGEN</b> has transformed the way I learn AI. Instead of only consuming tutorials, I'm building real projects through structured daily challenges, community support, and hands-on practice.</p>
+      <p>Through the program I've learned how to automate workflows, create websites, build AI agents, produce AI videos and much more — turning every lesson into something I can actually use.</p>
+      <p>It's helping me become more confident with AI tools, automation, and problem-solving while building a strong portfolio of practical work.</p>
     </div>
   </div>
 </section>
