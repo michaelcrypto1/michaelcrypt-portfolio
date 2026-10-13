@@ -79,7 +79,8 @@ nav{
 .photo-caption h2 .gold{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent;}
 .photo-caption p{color:var(--muted);max-width:560px;margin:0 auto;}
 .photo-caption .cap-line{width:120px;height:3px;margin:1.2rem auto;background:var(--grad-fire);border-radius:2px;}
-.circle-scroll{position:relative;z-index:2;display:flex;gap:2.2rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:2.5rem max(8vw,1.5rem) 2rem;scrollbar-width:none;}
+.circle-scroll{position:relative;z-index:2;display:flex;gap:2.2rem;overflow-x:auto;scroll-snap-type:x proximity;padding:2.5rem max(8vw,1.5rem) 2rem;scrollbar-width:none;cursor:grab;}
+.circle-scroll.dragging{cursor:grabbing;}
 .circle-scroll::-webkit-scrollbar{display:none;}
 .c-item{flex:0 0 auto;scroll-snap-align:center;text-align:center;width:210px;}
 .c-ring{width:200px;height:200px;border-radius:50%;overflow:hidden;margin:0 auto;border:3px solid var(--gold2);box-shadow:0 0 0 6px rgba(167,139,250,.14),0 20px 44px rgba(0,0,0,.6);transition:transform .3s;}
@@ -501,17 +502,24 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 parallax();
 
-// Circular gallery auto-scroll
+// Circular gallery — fully user-controlled (nothing moves on its own)
 const cs=document.getElementById('circleScroll');
 if(cs){
-  const citems=cs.querySelectorAll('.c-item');
-  let ci=0, csTimer;
-  const startAuto=()=>{csTimer=setInterval(()=>{if(document.hidden)return;ci=(ci+1)%citems.length;citems[ci].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});},2800);};
-  const stopAuto=()=>clearInterval(csTimer);
-  cs.addEventListener('mouseenter',stopAuto);
-  cs.addEventListener('mouseleave',startAuto);
-  cs.addEventListener('touchstart',stopAuto,{passive:true});
-  startAuto();
+  // vertical wheel over the gallery scrolls it horizontally, but only while it can still move;
+  // once it reaches an end the page scrolls normally, so you never get stuck.
+  cs.addEventListener('wheel',(e)=>{
+    const atStart=cs.scrollLeft<=0;
+    const atEnd=cs.scrollLeft+cs.clientWidth>=cs.scrollWidth-1;
+    const dy=e.deltaY;
+    if((dy>0&&!atEnd)||(dy<0&&!atStart)){cs.scrollLeft+=dy;e.preventDefault();}
+  },{passive:false});
+  // drag-to-scroll (mouse)
+  let down=false,startX=0,startL=0,moved=false;
+  cs.addEventListener('mousedown',(e)=>{down=true;moved=false;startX=e.pageX;startL=cs.scrollLeft;cs.classList.add('dragging');});
+  window.addEventListener('mouseup',()=>{down=false;cs.classList.remove('dragging');});
+  window.addEventListener('mousemove',(e)=>{if(!down)return;const dx=e.pageX-startX;if(Math.abs(dx)>6){moved=true;cs.scrollLeft=startL-dx;e.preventDefault();}});
+  // don't open the lightbox if the user was dragging
+  cs.addEventListener('click',(e)=>{if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);
 }
 
 // Lightbox - click a circle to view the image large & clear
