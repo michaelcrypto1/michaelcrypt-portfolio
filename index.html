@@ -225,6 +225,29 @@ footer .f-brand{font-family:'Cinzel',serif;color:var(--gold);font-weight:600;mar
 .lb-cap{margin-top:14px;text-align:center;font-family:'Cinzel',serif;color:var(--gold);font-size:1rem;letter-spacing:.04em;}
 @media(max-width:560px){.lb-prev{left:6px;}.lb-next{right:6px;}.lb-close{right:12px;}}
 
+/* AI VIDEO PORTFOLIO */
+#aivideo{background:radial-gradient(80% 70% at 50% 0%,rgba(124,58,237,.13),transparent 60%);}
+.sec-sub{color:var(--muted);max-width:640px;margin-top:.7rem;font-size:1.02rem;}
+.video-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:stretch;}
+.video-copy h3{font-family:'Cinzel',serif;font-size:clamp(1.15rem,2.6vw,1.5rem);margin-bottom:.9rem;}
+.video-copy p{color:var(--muted);margin-bottom:1rem;}
+.vf-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.75rem 1.2rem;margin:1.3rem 0 1.9rem;}
+.vf-list li{display:flex;gap:.55rem;align-items:flex-start;color:var(--text);font-size:.92rem;line-height:1.45;}
+.vf-list li::before{content:"▸";color:var(--gold);font-weight:800;}
+.video-card{position:relative;overflow:hidden;border:1px solid var(--line);background:var(--surface);border-radius:22px;padding:2.1rem;display:flex;flex-direction:column;justify-content:center;gap:1.05rem;}
+.video-card::before{content:"";position:absolute;inset:0;background:radial-gradient(90% 90% at 85% 0%,rgba(139,92,246,.22),transparent 62%);pointer-events:none;}
+.video-card>*{position:relative;}
+.play-badge{width:66px;height:66px;border-radius:50%;background:var(--grad-gold);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 34px rgba(167,139,250,.4);}
+.play-badge svg{width:26px;height:26px;fill:#0e0720;margin-left:3px;}
+.video-card h4{font-family:'Cinzel',serif;font-size:1.25rem;}
+.video-card p{color:var(--muted);font-size:.94rem;}
+.video-meta{display:flex;gap:1.6rem;border-top:1px solid var(--line);padding-top:1rem;}
+.video-meta .n{font-family:'Cinzel',serif;font-weight:700;font-size:1.15rem;color:var(--gold);}
+.video-meta .l{font-size:.68rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
+.service .svc-link{display:inline-block;margin-top:.75rem;color:var(--gold);font-size:.82rem;font-weight:600;letter-spacing:.04em;}
+.service:hover .svc-link{text-decoration:underline;}
+@media(max-width:900px){.video-grid{grid-template-columns:1fr;}.vf-list{grid-template-columns:1fr;}}
+
 /* responsive */
 @media(max-width:900px){
   .about-grid{grid-template-columns:1fr;}
@@ -251,6 +274,7 @@ footer .f-brand{font-family:'Cinzel',serif;color:var(--gold);font-weight:600;mar
     <div class="nav-links" id="navLinks">
       <a href="#about">About</a>
       <a href="#service">Service</a>
+      <a href="#aivideo">Videos</a>
       <a href="#miched209">Miched209</a>
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
@@ -331,7 +355,7 @@ footer .f-brand{font-family:'Cinzel',serif;color:var(--gold);font-weight:600;mar
       <div class="service reveal"><div class="ico">📱</div><h3>Social Media Management</h3><p>Your X, Telegram and Discord pages need consistent energy. I keep them active, professional and growing — so you don't have to worry about it.</p></div>
       <div class="service reveal"><div class="ico">📣</div><h3>Social Amplification</h3><p>Raiding, threads, coordinated engagement — I know how to push your project in front of the right eyes at the right time.</p></div>
       <div class="service reveal"><div class="ico">✍️</div><h3>AI Content Creation</h3><p>I create written content, threads and educational posts that break down your project simply — even a complete newcomer will understand what you're building.</p></div>
-      <div class="service reveal"><div class="ico">🎬</div><h3>AI Video Animation</h3><p>I produce short-form AI powered videos that explain your project in a way that stops the scroll and gets people talking.</p></div>
+      <a class="service reveal" href="https://drive.google.com/drive/folders/1Gcieqh-up1zV-QHDr-KW739KOT3eHL2s" target="_blank" rel="noopener"><div class="ico">🎬</div><h3>AI Video Animation</h3><p>I produce short-form AI powered videos that explain your project in a way that stops the scroll and gets people talking.</p><span class="svc-link">View my AI video portfolio ↗</span></a>
     </div>
   </div>
 </section>
@@ -356,6 +380,43 @@ footer .f-brand{font-family:'Cinzel',serif;color:var(--gold);font-weight:600;mar
     <div class="c-item"><div class="c-ring"><img src="proj-xreply.jpg" alt="X Amplification"></div><div class="c-name">X Amplification</div><div class="c-role">@Miched209 Reply</div></div>
   </div>
   <div class="scroll-hint">⇄ Scroll to explore ⇄</div>
+</section>
+
+<!-- AI VIDEO PORTFOLIO -->
+<section id="aivideo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">AI Video</div>
+      <h2 class="sec-title">AI Video That <span class="gold">Stops the Scroll</span></h2>
+      <p class="sec-sub">Short-form, high-impact AI video built for Web3 — promos, explainers and motion branding that make people stop, watch and remember your project.</p>
+    </div>
+    <div class="video-grid">
+      <div class="video-copy reveal">
+        <h3>From concept to finished cut — video that does the selling for you.</h3>
+        <p>Static posts get scrolled past; motion gets watched. I produce AI-powered videos that explain what your project is, build real hype around launches, and give your community something worth sharing.</p>
+        <ul class="vf-list">
+          <li>Short-form promo &amp; teaser videos</li>
+          <li>Project explainer animations</li>
+          <li>Animated branding &amp; logo motion</li>
+          <li>Launch &amp; milestone hype reels</li>
+          <li>AI-generated visual storytelling</li>
+          <li>Formatted for X, TikTok &amp; Reels</li>
+        </ul>
+        <a class="btn btn-gold" href="https://drive.google.com/drive/folders/1Gcieqh-up1zV-QHDr-KW739KOT3eHL2s" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg> View My AI Video Portfolio</a>
+      </div>
+      <div class="video-card reveal">
+        <div class="play-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+        <h4>My AI Video Portfolio</h4>
+        <p>A full collection of the AI videos I've created — open the folder and watch the work in motion.</p>
+        <div class="video-meta">
+          <div><div class="n">AI</div><div class="l">Video Creation</div></div>
+          <div><div class="n">Short</div><div class="l">Form</div></div>
+          <div><div class="n">Web3</div><div class="l">Focused</div></div>
+        </div>
+        <a class="btn btn-outline" href="https://drive.google.com/drive/folders/1Gcieqh-up1zV-QHDr-KW739KOT3eHL2s" target="_blank" rel="noopener">Open Google Drive Folder ↗</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- MICHED209 -->
