@@ -241,8 +241,8 @@ footer .f-brand{font-family:'Cinzel',serif;color:var(--gold);font-weight:600;mar
 @media(max-width:900px){
   .about-grid{grid-template-columns:1fr;}
   .services,.process{grid-template-columns:1fr 1fr;}
-  .nav-links{position:fixed;top:68px;right:0;flex-direction:column;background:rgba(6,4,14,.98);padding:1.5rem;gap:1.2rem;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .3s;}
-  .nav-links.open{transform:none;}
+  .nav-links{position:fixed;top:68px;right:0;flex-direction:column;background:rgba(6,4,14,.98);padding:1.5rem;gap:1.2rem;border-left:1px solid var(--line);transform:none;display:none;}
+  .nav-links.open{display:flex;animation:navDrop .24s ease both;}
   .menu-toggle{display:block;}
   .nav-cta{display:none;}
 }
@@ -336,10 +336,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
   .nav-cta{padding:.45rem .9rem;}
 }
 @media(max-width:900px){
-  .nav-links{visibility:hidden;transition:transform .3s,visibility 0s .3s;}
-  .nav-links.open{visibility:visible;transition:transform .3s;}
+  .nav-links{visibility:visible;}
 }
 @media(max-width:700px){.flow-blob{filter:blur(70px);}}
+@keyframes navDrop{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);}}
 @media(prefers-reduced-motion:reduce){
   .ah-badge{animation:none;}
   .reveal{opacity:1;transform:none;transition:none;}
